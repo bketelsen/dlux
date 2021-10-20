@@ -1,0 +1,6 @@
+{{ define "todos" }}
+    {{ range .todos }}
+        {{ template "todo" .}}
+    {{ else }}
+    {{end}}
+{{end}}

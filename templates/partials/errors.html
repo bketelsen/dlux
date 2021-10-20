@@ -1,0 +1,37 @@
+{{define "errors"}}
+    {{if .errors}}
+        <div class="columns is-mobile is-centered">
+            <div class="column is-two-thirds-desktop">
+                <div class="notification is-small is-danger is-light">
+                    {{ range .errors }}
+                        <li>{{.}}</li>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    {{end}}
+{{end}}
+
+{{define "glw-error"}}
+    <div id="glw-error" class="columns is-mobile is-centered {{ if not .error}}is-hidden{{end}}">
+        <div class="column is-half-desktop">
+            <div class="notification is-small is-danger is-light">
+                {{ with .error }}
+                    <p>{{.}}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "glw-flash"}}
+    <div id="glw-flash" class="columns is-mobile is-centered {{ if not .message}}is-hidden{{end}}">
+        <div class="column is-half-desktop">
+            <div class="notification is-small {{ with .message_class}} {{.}} {{else}}is-primary {{end}}is-light">
+                {{ with .message }}
+                    <p>{{.}}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{end}}
